@@ -102,7 +102,7 @@ footer {
         width: 100%;
         display: flex;
         justify-content: space-around;
-        padding: 1rem 0.5rem;
+        padding: 2rem 0.5rem;
     }
     .manito-haciendo-piedra, .manito-haciendo-tijeras, .manito-haciendo-papel {
         font-size: 5.2rem;
