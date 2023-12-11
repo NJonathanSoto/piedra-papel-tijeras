@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, papel o tijeras</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Pixelify+Sans&display=swap" rel="stylesheet">   
+</head>
+<body>
+
+    <header>
+        <p class="titulo">Piedra, papel o tijeras</p>
+    </header>
+
+    <main>
+        <div class="mi-juego">
+            <button class="manito-haciendo-piedra manito-uno mi-piedra">✊🏻</button>
+            <button class="manito-haciendo-tijeras manito-dos mi-tijera">✌🏻</button>
+            <button class="manito-haciendo-papel manito-tres mi-papel">✋🏻</button>
+        </div>
+        <div class="resultado">
+            <p class="texto-resultado">Resultado</p>
+        </div>
+        <div class="juego-de-la-computadora">
+            <p class="manito-haciendo-piedra su-piedra">✊🏻</p>
+            <p class="manito-haciendo-tijeras su-tijera">✌🏻</p>
+            <p class="manito-haciendo-papel su-papel">✋🏻</p>
+        </div>
+    </main>
+
+    <footer>
+        <button onclick="window.location.reload();" class="boton-cargar"> Volver a jugar </button>
+        <div class="redes">
+            <a href="https://www.facebook.com/nicolas.soto.980315/" target="_blank"><img src="icons/facebook.png" alt="facebook autor"></a>
+            <a href="https://www.linkedin.com/in/nicol%C3%A1s-soto-webdeveloper/" target="_blank"><img src="icons/linkedin.png" alt="linkedin autor"></a>
+        </div>
+    </footer>
+
+    <script>
+
+        // Función para el juego de la computadora
+
+        let computadoraJuego = Math.floor(Math.random() * 3); // Variable que almacena números al azar que van del 0 al 2 
+
+        let pcJuego = '';
+
+        let juegoComputadora = (a) => { // Primera función: esta le asigna a cada número un string
+            if(a == 0) {
+            pcJuego = 'piedra';
+        }
+        else if(a == 1) {
+            pcJuego = 'papel';
+        }
+        else if(a == 2) {
+            pcJuego = 'tijeras';
+        }
+
+        return pcJuego;
+        }
+
+        let resultadoComputadora = juegoComputadora(computadoraJuego); // La función se le asigna a una variable
+
+        // Toma de cada uno de los elementos que van a cambiar de estado
+
+        let miPiedra = document.querySelector('.mi-piedra');
+        let miTijera = document.querySelector('.mi-tijera');
+        let miPapel = document.querySelector('.mi-papel');
+
+        let suPiedra = document.querySelector('.su-piedra');
+        let suTijera = document.querySelector('.su-tijera');
+        let suPapel = document.querySelector('.su-papel');
+
+        /* Funciones para el juego de el usuario
+        Cada función, hace las comparaciones correspondientes y, en consecuencia, cambia el estado de los elementos que 
+        fueron colocados en las variables de la computadora (suPiedra, suTijera, suPapel) y de aquel que arroja el 
+        resultado final */
+
+        let miJuego = '';
+
+        let piedrita = miPiedra.addEventListener('click', function() {
+        miJuego = 'Piedra';
+
+            if(resultadoComputadora == 'tijeras') {
+                document.querySelector('.texto-resultado').innerHTML = ' Ganaste ';
+
+                suTijera.classList.add('tijeras');
+            }
+            else if(resultadoComputadora == 'papel') {
+                document.querySelector('.texto-resultado').innerHTML = ' Perdiste ';
+
+                suPapel.classList.add('papel');
+            }
+
+            if(miJuego == 'Piedra' && resultadoComputadora == 'piedra') {
+                document.querySelector('.texto-resultado').innerHTML = ' Empate ';
+
+                suPapel.classList.remove('papel');
+            }
+        });
+
+        let tijerita = miTijera.addEventListener('click', function() {
+        miJuego = 'Tijeras';
+
+            if(resultadoComputadora == 'papel') {
+                document.querySelector('.texto-resultado').innerHTML = ' Ganaste ';
+
+                suPapel.classList.add('papel');
+            }
+            else if (resultadoComputadora == 'piedra') {
+                document.querySelector('.texto-resultado').innerHTML = ' Perdiste ';
+
+                suPiedra.classList.add('piedras');
+            }
+
+            if(miJuego == 'Tijeras' && resultadoComputadora == 'tijeras') {
+                document.querySelector('.texto-resultado').innerHTML = ' Empate ';
+
+                suPiedra.classList.remove('piedras');
+            }
+        });
+
+        let papelito = miPapel.addEventListener('click', function() {
+        miJuego = 'Papel';
+
+            if(resultadoComputadora == 'piedra') {
+                document.querySelector('.texto-resultado').innerHTML = ' Ganaste ';
+
+                suPiedra.classList.add('piedras');
+            }
+            else if(resultadoComputadora == 'tijeras') {
+                document.querySelector('.texto-resultado').innerHTML = ' Perdiste ';
+
+                suTijera.classList.add('tijeras');
+            }
+
+            if(miJuego == 'Papel' && resultadoComputadora == 'papel') {
+                document.querySelector('.texto-resultado').innerHTML = ' Empate ';
+
+                suTijera.classList.remove('tijeras');
+            }
+        });
+
+    </script>
+
+</body>
+</html>

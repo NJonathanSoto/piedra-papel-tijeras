@@ -1,0 +1,117 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+body {
+    background: #5cdbbc;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.3rem;
+}
+.titulo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mi-juego, .juego-de-la-computadora, .resultado {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.texto-resultado {
+    width: 50%;
+    margin: auto;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3rem;
+    border-radius: 15px;
+    background: linear-gradient(yellow, gold);
+    border: 7px solid black;
+}
+.manito-haciendo-piedra, .manito-haciendo-tijeras, .manito-haciendo-papel {
+    font-size: 6rem;
+}
+.mi-piedra, .mi-papel, .mi-tijera {
+    border: none;
+    background: rgba(255, 255, 255, 0);
+}
+footer {
+    padding: 1rem;
+    text-align: center;
+}
+.boton-cargar {
+    padding: 0.7rem;
+    margin-top: 0.5rem;
+    border: 5px solid black;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(253,137,29,1) 0%, rgba(253,115,29,1) 100%, rgba(253,29,29,1) 100%, rgba(186,45,112,1) 100%, rgba(253,29,29,1) 100%);
+}
+.redes {
+    padding: 1rem;
+}
+.redes img {
+    width: 3rem;
+    margin: 0.4rem;
+    border-radius: 50%;
+    background: white;
+}
+
+/* Pseudo-clases */
+
+.manito-uno:hover, .manito-dos:hover, .manito-tres:hover, .boton-cargar:hover, .redes img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.boton-cargar:hover, .redes img:hover {
+    box-shadow: 8px 5px 10px #26a997;
+}
+
+/* Clases que se agregan con JavaScript */
+
+.tijeras, .papel, .piedras {
+    transform: scale(1.25);
+    transition: 0.3s;
+}
+
+/* Media Querys a partir de los 520px */
+
+@media(max-width: 520px) {
+    .titulo {
+        font-size: 1.6rem;
+        padding-top: 0.5rem;
+    }
+    main {
+        padding: 2rem 0rem;
+    }
+    .mi-juego, .juego-de-la-computadora, .resultado {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 0.5rem;
+    }
+    .manito-haciendo-piedra, .manito-haciendo-tijeras, .manito-haciendo-papel {
+        font-size: 5.2rem;
+    }
+    .texto-resultado {
+        width: 200px;
+        font-size: 1.6rem;
+    }
+    .boton-cargar {
+        font-size: 1.1rem;
+    }
+}
