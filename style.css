@@ -11,7 +11,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.3rem;
+    padding: 1.5rem;
 }
 .titulo {
     font-size: 1.8rem;
@@ -96,13 +96,13 @@ footer {
         padding-top: 0.5rem;
     }
     main {
-        padding: 2rem 0rem;
+        padding: 1rem 0rem;
     }
     .mi-juego, .juego-de-la-computadora, .resultado {
         width: 100%;
         display: flex;
         justify-content: space-around;
-        padding: 0.5rem;
+        padding: 1rem 0.5rem;
     }
     .manito-haciendo-piedra, .manito-haciendo-tijeras, .manito-haciendo-papel {
         font-size: 5.2rem;
